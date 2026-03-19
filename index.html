@@ -17,6 +17,7 @@ body{
   overflow-x:hidden;
   line-height:1.6;
 }
+
 section{
   padding:80px 20px;
   text-align:center;
@@ -24,10 +25,13 @@ section{
   transform:translateY(40px);
   transition:all 1.2s ease;
 }
+
 section.visible{
   opacity:1;
   transform:translateY(0);
 }
+
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -37,6 +41,7 @@ section.visible{
   background:linear-gradient(135deg,#fde2e4,#e0e7ff);
   padding:40px 20px;
 }
+
 .hero h1{
   font-family:"Playfair Display", serif;
   font-size:clamp(70px, 12vw, 110px);
@@ -44,40 +49,256 @@ section.visible{
   color:#b76e79;
   line-height:0.95;
 }
+
 .hero .amp{
   font-size:0.7em;
   margin:0 10px;
   color:#b76e79;
 }
+
 .hero .date{
   font-size:clamp(28px, 6vw, 42px);
   margin:30px 0 20px;
   font-weight:500;
 }
+
 .hero p{
   font-size:clamp(20px, 4.5vw, 28px);
   max-width:900px;
   margin:20px auto 40px;
 }
+
+/* WELCOME */
+.welcome{
+  max-width:820px;
+  margin:0 auto 60px;
+  font-size:20px;
+}
+
+.welcome p{
+  margin:16px 0;
+}
+
+/* TIMER */
+.timer{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:16px;
+  margin:40px 0;
+}
+
+.time-box{
+  background:white;
+  padding:20px 28px;
+  border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,0,0,.1);
+  min-width:110px;
+}
+
+.time-box span{
+  font-size:clamp(28px, 7vw, 42px);
+  font-weight:600;
+  display:block;
+  color:#b76e79;
+}
+
+/* CARDS */
+.program{max-width:1000px;margin:0 auto;}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,0,0,.1);
+  margin:25px 0;
+  text-align:left;
+}
+
+.card h3{
+  font-size:24px;
+  margin:0 0 12px;
+  color:#b76e79;
+  font-family:"Playfair Display", serif;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  background:#b76e79;
+  color:white;
+  padding:14px 36px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:500;
+  margin:20px 12px;
+  transition:0.3s;
+  font-size:17px;
+}
+
+.btn:hover{
+  background:#a55c6a;
+  transform:translateY(-2px);
+}
+
+.btn-tg{
+  background:#0088cc;
+}
+
+.btn-tg:hover{
+  background:#006b9e;
+}
+
+/* FOOTER */
 .footer{
   font-size:22px;
   font-style:italic;
   padding:80px 20px 120px;
   color:#555;
 }
+
+/* HEARTS */
+.hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+
+.heart{
+  position:absolute;
+  color:#ff9aa2;
+  animation:float 12s linear infinite;
+  font-size:clamp(16px, 3vw, 24px);
+  opacity:0.5;
+}
+
+@keyframes float{
+  0%{transform:translateY(110vh) rotate(0deg);opacity:0}
+  10%{opacity:0.6}
+  100%{transform:translateY(-20vh) rotate(360deg);opacity:0}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  section{padding:60px 16px;}
+  .btn{padding:12px 32px; font-size:16px;}
+}
 </style>
 </head>
 <body>
 
+<div class="hearts" id="hearts"></div>
+
 <section class="hero">
+
 <h1>Григорий <span class="amp">&</span> Ульяна</h1>
+
 <div class="date">12 августа 2026 • среда</div>
+
 <p>Приглашаем вас разделить с нами самый счастливый день нашей жизни</p>
+
+</section>
+
+<section>
+
+<div class="welcome">
+
+<h2 style="font-family:'Playfair Display', serif; color:#b76e79; font-size:clamp(32px,6vw,44px); margin-bottom:30px;">Дорогие друзья и родные!</h2>
+
+<p>С огромной радостью приглашаем вас разделить с нами особенный день — день, когда мы станем семьёй.</p>
+
+<p>Ваши улыбки, тёплые слова и присутствие сделают этот день по-настоящему незабываемым. А ваши пожелания в конвертах помогут нам осуществить наши маленькие и большие мечты.</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="font-size:clamp(32px,6vw,44px);">До нашей свадьбы осталось</h2>
+
+<div class="timer">
+  <div class="time-box"><span id="days">0</span> дней</div>
+  <div class="time-box"><span id="hours">0</span> часов</div>
+  <div class="time-box"><span id="minutes">0</span> минут</div>
+  <div class="time-box"><span id="seconds">0</span> секунд</div>
+</div>
+
+</section>
+
+<section>
+
+<h2 style="font-size:clamp(32px,6vw,44px);">Программа дня</h2>
+
+<div class="program">
+
+<div class="card">
+  <h3>14:00 — Торжественная регистрация</h3>
+  <p>Отдел ЗАГС Фрунзенского района<br>пр. Славы, 31, Санкт-Петербург</p>
+</div>
+
+<div class="card">
+  <h3>15:00 — Праздничный банкет</h3>
+  <p>Ресторан «Цезарь»<br>ул. Димитрова, 5, Санкт-Петербург</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="font-size:clamp(32px,6vw,44px);">Связаться с нами</h2>
+
+<div style="margin:40px 0;">
+  <a href="https://t.me/ulyanakuz01" class="btn btn-tg" target="_blank">Написать в Telegram @ulyanakuz01</a>
+  <a href="https://forms.gle/тут_вставь_ссылку_на_форму" class="btn" target="_blank">Подтвердить участие (RSVP)</a>
+</div>
+
 </section>
 
 <div class="footer">
 Будем очень счастливы видеть вас рядом в этот волшебный день 💍✨
 </div>
+
+<script>
+// Таймер
+const weddingDate = new Date("Aug 12, 2026 14:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
+  document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60));
+  document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60)) / 1000);
+}, 1000);
+
+// Сердечки
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.animationDuration = (8 + Math.random() * 8) + "s";
+  heart.innerHTML = Math.random() > 0.6 ? "💗" : "❤";
+  document.getElementById("hearts").appendChild(heart);
+  setTimeout(() => heart.remove(), 16000);
+}
+
+setInterval(createHeart, 1400);
+
+// Появление секций
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, {threshold: 0.1});
+
+document.querySelectorAll("section").forEach(sec => observer.observe(sec));
+</script>
 
 </body>
 </html>
