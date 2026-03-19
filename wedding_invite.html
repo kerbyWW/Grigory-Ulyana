@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Григорий и Ульяна — свадьба</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Montserrat, sans-serif;
+  background:linear-gradient(135deg,#fff1f5,#f0f4ff);
+  color:#333;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+section{
+  padding:80px 20px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1.2s ease;
+}
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#fde2e4,#e0e7ff);
+  padding:40px 20px;
+}
+.hero h1{
+  font-family:"Playfair Display", serif;
+  font-size:clamp(70px, 12vw, 110px);
+  margin:0;
+  color:#b76e79;
+  line-height:0.95;
+}
+.hero .amp{
+  font-size:0.7em;
+  margin:0 10px;
+  color:#b76e79;
+}
+.hero .date{
+  font-size:clamp(28px, 6vw, 42px);
+  margin:30px 0 20px;
+  font-weight:500;
+}
+.hero p{
+  font-size:clamp(20px, 4.5vw, 28px);
+  max-width:900px;
+  margin:20px auto 40px;
+}
+.footer{
+  font-size:22px;
+  font-style:italic;
+  padding:80px 20px 120px;
+  color:#555;
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<h1>Григорий <span class="amp">&</span> Ульяна</h1>
+<div class="date">12 августа 2026 • среда</div>
+<p>Приглашаем вас разделить с нами самый счастливый день нашей жизни</p>
+</section>
+
+<div class="footer">
+Будем очень счастливы видеть вас рядом в этот волшебный день 💍✨
+</div>
+
+</body>
+</html>
